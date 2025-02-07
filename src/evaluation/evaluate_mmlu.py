@@ -42,7 +42,7 @@ def evaluate_mmlu(model_name, device):
             correct_predictions += 1
 
     accuracy = correct_predictions / total_samples
-    print(f"Accuracy: {accuracy:.4f}")
+    return accuracy
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Evaluate a model on the MMLU dataset.")
@@ -50,4 +50,5 @@ if __name__ == "__main__":
     parser.add_argument("--device", type=str, default="cuda" if torch.cuda.is_available() else "cpu", help="The device to run the evaluation on (cuda or cpu).")
     args = parser.parse_args()
 
-    evaluate_mmlu(args.model_name, args.device)
+    accuracy = evaluate_mmlu(args.model_name, args.device)
+    print(f"Accuracy: {accuracy:.4f}")
