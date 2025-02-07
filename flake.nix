@@ -18,6 +18,13 @@
             (with pkgs.python311Packages; [
               pip
               venvShellHook
+              argparse
+              torch
+              transformers
+              tqdm
+              datasets
+              flask
+
             ]);
         };
       });
