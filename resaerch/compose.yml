@@ -1,0 +1,18 @@
+services:
+  app:
+    # build: .
+    image: ruli:research
+    volumes:
+      - ./src:/app/src
+      - ./models:/app/models
+      - ./evaluations:/app/evaluations
+      - ./models:/app/models
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: all
+              capabilities: [gpu]
+    stdin_open: true
+    tty: true

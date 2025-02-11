@@ -1,0 +1,14 @@
+model:
+  name: "/app/models/Qwen2.5/1.5b-instruct"
+  batch_size: 8
+
+benchmarks:
+  - name: "glue"
+    enabled: true
+  - name: "ruglue"
+    enabled: false
+
+output:
+  save_path: "/app/evaluatoins"
+  format: ["json", "csv"] # supported formats
+  detailed: true # whether to include detailed metrics
